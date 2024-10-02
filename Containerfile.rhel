@@ -1,0 +1,36 @@
+FROM registry.access.redhat.com/ubi9
+ARG INSTALL_PACKAGES_FROM=default
+ARG SAMBA_VERSION_SUFFIX=""
+ARG SAMBACC_VERSION_SUFFIX=""
+ARG SAMBA_SPECIFICS=daemon_cli_debug_output,ctdb_leader_admin_command
+
+MAINTAINER John Mulligan <jmulligan@redhat.com>
+
+LABEL org.opencontainers.image.title="Samba container"
+LABEL org.opencontainers.image.description="Samba container"
+LABEL org.opencontainers.image.vendor="Samba in Kubernetes"
+LABEL org.opencontainers.image.url="https://github.com/samba-in-kubernetes/samba-container"
+
+
+COPY smb.conf /etc/samba/smb.conf
+COPY --chmod=755 install-packages-rhel.sh /usr/local/bin/install-packages.sh
+RUN echo "installing packages..."
+RUN --mount=type=secret,id=org-id --mount=type=secret,id=activation-key /usr/local/bin/install-packages.sh \
+    "${SAMBA_VERSION_SUFFIX}" 
+
+COPY --chmod=755 install-sambacc-rhel.sh /usr/local/bin/install-sambacc.sh
+RUN /usr/local/bin/install-sambacc.sh \
+    "${SAMBACC_VERSION_SUFFIX}"
+
+
+VOLUME ["/share"]
+
+EXPOSE 445
+
+ENV SAMBACC_CONFIG="/etc/samba/container.json:/etc/samba/users.json"
+ENV SAMBA_CONTAINER_ID="demo"
+ENV SAMBA_SPECIFICS="$SAMBA_SPECIFICS"
+ENTRYPOINT ["samba-container"]
+CMD ["run", "smbd"]
+
+# vim:set syntax=dockerfile:
