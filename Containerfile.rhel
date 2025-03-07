@@ -14,9 +14,7 @@ LABEL org.opencontainers.image.url="https://github.com/samba-in-kubernetes/samba
 
 COPY smb.conf /etc/samba/smb.conf
 COPY --chmod=755 install-packages-rhel.sh /usr/local/bin/install-packages.sh
-RUN echo "installing packages..."
-RUN --mount=type=secret,id=org-id --mount=type=secret,id=activation-key /usr/local/bin/install-packages.sh \
-    "${SAMBA_VERSION_SUFFIX}" 
+RUN --mount=type=secret,id=org-id --mount=type=secret,id=activation-key /usr/local/bin/install-packages.sh 
 
 COPY --chmod=755 install-sambacc-rhel.sh /usr/local/bin/install-sambacc.sh
 RUN /usr/local/bin/install-sambacc.sh \
