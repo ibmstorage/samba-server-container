@@ -9,6 +9,7 @@ support_packages=(\
     python-pip \
     python3-samba \
     python3-pyxattr \
+    libcephfs-proxy2 \
     tdb-tools)
 
 # Packages belonging to the samba install. If a samba_version_suffix is given
@@ -20,7 +21,6 @@ samba_packages=(\
     samba-winbind-clients \
     samba-vfs-iouring \
     samba-vfs-cephfs \
-    libcephfs-proxy2 \
     ctdb \
     ctdb-ceph-mutex)
 
