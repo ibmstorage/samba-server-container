@@ -21,6 +21,10 @@ samba_packages=(\
     samba-vfs-iouring \
     samba-vfs-cephfs \
     libcephfs-proxy2 \
+    python3-varlink \
+    python3-pykmip \
+    protobuf \
+    grpc \
     ctdb \
     ctdb-ceph-mutex)
 
