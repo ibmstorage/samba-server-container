@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9
+FROM registry.access.redhat.com/ubi10
 ARG INSTALL_PACKAGES_FROM=default
 ARG SAMBA_VERSION_SUFFIX=""
 ARG SAMBACC_VERSION_SUFFIX=""
