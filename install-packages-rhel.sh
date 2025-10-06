@@ -31,7 +31,7 @@ for p in "${samba_packages[@]}"; do
 done
 
 subscription-manager register --activationkey=$(cat /run/secrets/activation-key) --org=$(cat /run/secrets/org-id)
-subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+subscription-manager repos --enable codeready-builder-for-rhel-10-$(arch)-rpms
 
 dnf \
     install --setopt=install_weak_deps=False -y \
