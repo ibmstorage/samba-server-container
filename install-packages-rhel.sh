@@ -8,6 +8,11 @@ support_packages=(\
     findutils \
     python-pip \
     python3-samba \
+    python3-varlink \
+    python3-pykmip \
+    python3-protobuf \
+    python3-grpcio \
+    python3-rados \
     python3-pyxattr \
     tdb-tools)
 
@@ -21,10 +26,6 @@ samba_packages=(\
     samba-vfs-iouring \
     samba-vfs-cephfs \
     libcephfs-proxy2 \
-    python3-varlink \
-    python3-pykmip \
-    protobuf \
-    grpc \
     ctdb \
     ctdb-ceph-mutex)
 
