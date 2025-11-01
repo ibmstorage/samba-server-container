@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi10
 ARG INSTALL_PACKAGES_FROM=default
 ARG SAMBA_VERSION_SUFFIX=""
 ARG SAMBACC_VERSION_SUFFIX=""
-ARG SAMBA_SPECIFICS=daemon_cli_debug_output,ctdb_leader_admin_command
+ARG SAMBA_SPECIFICS=daemon_cli_debug_output,ctdb_leader_admin_command,ctdb_rados_mutex_skip_reg
 
 MAINTAINER John Mulligan <jmulligan@redhat.com>
 
