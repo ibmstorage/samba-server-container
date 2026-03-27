@@ -12,6 +12,7 @@ support_packages=(\
     python3-pykmip \
     python3-protobuf \
     python3-grpcio \
+    python3-grpcio-reflection \
     python3-rados \
     python3-pyxattr \
     tdb-tools)
