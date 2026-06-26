@@ -17,7 +17,7 @@ COPY --chmod=755 install-packages-rhel.sh /usr/local/bin/install-packages.sh
 RUN --mount=type=secret,id=org-id --mount=type=secret,id=activation-key /usr/local/bin/install-packages.sh 
 
 COPY --chmod=755 install-sambacc-rhel.sh /usr/local/bin/install-sambacc.sh
-RUN /usr/local/bin/install-sambacc.sh \
+RUN bash /usr/local/bin/install-sambacc.sh \
     "${SAMBACC_VERSION_SUFFIX}"
 
 
