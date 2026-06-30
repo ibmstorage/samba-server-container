@@ -26,6 +26,7 @@ samba_packages=(\
     samba-winbind-clients \
     samba-vfs-iouring \
     samba-vfs-cephfs \
+    samba-vfs-cephrgw \
     libcephfs-proxy2 \
     ctdb \
     ctdb-ceph-mutex)
